@@ -1,0 +1,71 @@
+<div>
+  <div>
+    <h1>
+      Spot offering #<%= @the_spot_offering.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/spot_offerings">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_spot_offering/<%= @the_spot_offering.id %>">
+          Delete spot offering
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Offering
+      </dt>
+      <dd>
+        <%= @the_spot_offering.offering %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_spot_offering.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_spot_offering.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit spot offering
+    </h2>
+
+    <form action="/modify_spot_offering/<%= @the_spot_offering.id %>"  method="post" >
+      <div>
+        <label for="offering_box">
+          Offering
+        </label>
+
+        <input type="text" id="offering_box" name="query_offering" value="<%= @the_spot_offering.offering %>">
+      </div>
+
+      <button>
+        Update spot offering
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

@@ -1,0 +1,86 @@
+<div>
+  <div>
+    <h1>
+      List of all regions
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new region
+    </h2>
+
+    <form action="/insert_region" method="post">
+      <div>
+        <label for="region_box">
+          Region
+        </label>
+
+        <input type="text" id="region_box" name="query_region">
+      </div>
+
+      <button>
+        Create region
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Region
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_regions.each do |a_region| %>
+      <tr>
+        <td>
+          <%= a_region.id %>
+        </td>
+
+        <td>
+          <%= a_region.region %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_region.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_region.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/regions/<%= a_region.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

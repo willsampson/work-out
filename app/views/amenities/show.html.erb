@@ -1,0 +1,161 @@
+<div>
+  <div>
+    <h1>
+      Amenity #<%= @the_amenity.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/amenities">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_amenity/<%= @the_amenity.id %>">
+          Delete amenity
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Amenity
+      </dt>
+      <dd>
+        <%= @the_amenity.amenity %>
+      </dd>
+
+      <dt>
+        Wifi
+      </dt>
+      <dd>
+        <%= @the_amenity.wifi %>
+      </dd>
+
+      <dt>
+        Outlets
+      </dt>
+      <dd>
+        <%= @the_amenity.outlets %>
+      </dd>
+
+      <dt>
+        Food
+      </dt>
+      <dd>
+        <%= @the_amenity.food %>
+      </dd>
+
+      <dt>
+        Coffee
+      </dt>
+      <dd>
+        <%= @the_amenity.coffee %>
+      </dd>
+
+      <dt>
+        Spot
+      </dt>
+      <dd>
+        <%= @the_amenity.spot_id %>
+      </dd>
+
+      <dt>
+        Offering
+      </dt>
+      <dd>
+        <%= @the_amenity.offering_id %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_amenity.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_amenity.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit amenity
+    </h2>
+
+    <form action="/modify_amenity/<%= @the_amenity.id %>"  method="post" >
+      <div>
+        <label for="amenity_box">
+          Amenity
+        </label>
+
+        <input type="text" id="amenity_box" name="query_amenity" value="<%= @the_amenity.amenity %>">
+      </div>
+
+      <div>
+        <input type="checkbox" id="wifi_box" name="query_wifi" value="1" <%= "checked" if @the_amenity.wifi %>>
+
+        <label for="wifi_box">
+            Wifi
+        </label>
+      </div>
+
+      <div>
+        <input type="checkbox" id="outlets_box" name="query_outlets" value="1" <%= "checked" if @the_amenity.outlets %>>
+
+        <label for="outlets_box">
+            Outlets
+        </label>
+      </div>
+
+      <div>
+        <input type="checkbox" id="food_box" name="query_food" value="1" <%= "checked" if @the_amenity.food %>>
+
+        <label for="food_box">
+            Food
+        </label>
+      </div>
+
+      <div>
+        <input type="checkbox" id="coffee_box" name="query_coffee" value="1" <%= "checked" if @the_amenity.coffee %>>
+
+        <label for="coffee_box">
+            Coffee
+        </label>
+      </div>
+
+      <div>
+        <label for="spot_id_box">
+          Spot
+        </label>
+
+        <input type="text" id="spot_id_box" name="query_spot_id" value="<%= @the_amenity.spot_id %>">
+      </div>
+
+      <div>
+        <label for="offering_id_box">
+          Offering
+        </label>
+
+        <input type="text" id="offering_id_box" name="query_offering_id" value="<%= @the_amenity.offering_id %>">
+      </div>
+
+      <button>
+        Update amenity
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

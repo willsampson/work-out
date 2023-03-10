@@ -1,0 +1,174 @@
+<div>
+  <div>
+    <h1>
+      List of all amenities
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new amenity
+    </h2>
+
+    <form action="/insert_amenity" method="post">
+      <div>
+        <label for="amenity_box">
+          Amenity
+        </label>
+
+        <input type="text" id="amenity_box" name="query_amenity">
+      </div>
+
+      <div>
+        <input type="checkbox" id="wifi_box" name="query_wifi" value="1">
+
+        <label for="wifi_box">Wifi</label>
+      </div>
+
+      <div>
+        <input type="checkbox" id="outlets_box" name="query_outlets" value="1">
+
+        <label for="outlets_box">Outlets</label>
+      </div>
+
+      <div>
+        <input type="checkbox" id="food_box" name="query_food" value="1">
+
+        <label for="food_box">Food</label>
+      </div>
+
+      <div>
+        <input type="checkbox" id="coffee_box" name="query_coffee" value="1">
+
+        <label for="coffee_box">Coffee</label>
+      </div>
+
+      <div>
+        <label for="spot_id_box">
+          Spot
+        </label>
+
+        <input type="text" id="spot_id_box" name="query_spot_id">
+      </div>
+
+      <div>
+        <label for="offering_id_box">
+          Offering
+        </label>
+
+        <input type="text" id="offering_id_box" name="query_offering_id">
+      </div>
+
+      <button>
+        Create amenity
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Amenity
+        </th>
+
+        <th>
+          Wifi
+        </th>
+
+        <th>
+          Outlets
+        </th>
+
+        <th>
+          Food
+        </th>
+
+        <th>
+          Coffee
+        </th>
+
+        <th>
+          Spot
+        </th>
+
+        <th>
+          Offering
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_amenities.each do |an_amenity| %>
+      <tr>
+        <td>
+          <%= an_amenity.id %>
+        </td>
+
+        <td>
+          <%= an_amenity.amenity %>
+        </td>
+
+        <td>
+          <%= an_amenity.wifi %>
+        </td>
+
+        <td>
+          <%= an_amenity.outlets %>
+        </td>
+
+        <td>
+          <%= an_amenity.food %>
+        </td>
+
+        <td>
+          <%= an_amenity.coffee %>
+        </td>
+
+        <td>
+          <%= an_amenity.spot_id %>
+        </td>
+
+        <td>
+          <%= an_amenity.offering_id %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(an_amenity.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(an_amenity.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/amenities/<%= an_amenity.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

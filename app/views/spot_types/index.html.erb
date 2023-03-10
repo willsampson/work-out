@@ -1,0 +1,158 @@
+<div>
+  <div>
+    <h1>
+      List of all spot types
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new spot type
+    </h2>
+
+    <form action="/insert_spot_type" method="post">
+      <div>
+        <label for="category_id_box">
+          Category
+        </label>
+
+        <input type="text" id="category_id_box" name="query_category_id">
+      </div>
+
+      <div>
+        <label for="spot_id_box">
+          Spot
+        </label>
+
+        <input type="text" id="spot_id_box" name="query_spot_id">
+      </div>
+
+      <div>
+        <input type="checkbox" id="cafe_box" name="query_cafe" value="1">
+
+        <label for="cafe_box">Cafe</label>
+      </div>
+
+      <div>
+        <input type="checkbox" id="library_box" name="query_library" value="1">
+
+        <label for="library_box">Library</label>
+      </div>
+
+      <div>
+        <input type="checkbox" id="hotel_box" name="query_hotel" value="1">
+
+        <label for="hotel_box">Hotel</label>
+      </div>
+
+      <div>
+        <input type="checkbox" id="public_space_box" name="query_public_space" value="1">
+
+        <label for="public_space_box">Public space</label>
+      </div>
+
+      <button>
+        Create spot type
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Category
+        </th>
+
+        <th>
+          Spot
+        </th>
+
+        <th>
+          Cafe
+        </th>
+
+        <th>
+          Library
+        </th>
+
+        <th>
+          Hotel
+        </th>
+
+        <th>
+          Public space
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_spot_types.each do |a_spot_type| %>
+      <tr>
+        <td>
+          <%= a_spot_type.id %>
+        </td>
+
+        <td>
+          <%= a_spot_type.category_id %>
+        </td>
+
+        <td>
+          <%= a_spot_type.spot_id %>
+        </td>
+
+        <td>
+          <%= a_spot_type.cafe %>
+        </td>
+
+        <td>
+          <%= a_spot_type.library %>
+        </td>
+
+        <td>
+          <%= a_spot_type.hotel %>
+        </td>
+
+        <td>
+          <%= a_spot_type.public_space %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_spot_type.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_spot_type.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/spot_types/<%= a_spot_type.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

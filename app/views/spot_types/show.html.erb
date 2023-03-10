@@ -1,0 +1,146 @@
+<div>
+  <div>
+    <h1>
+      Spot type #<%= @the_spot_type.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/spot_types">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_spot_type/<%= @the_spot_type.id %>">
+          Delete spot type
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Category
+      </dt>
+      <dd>
+        <%= @the_spot_type.category_id %>
+      </dd>
+
+      <dt>
+        Spot
+      </dt>
+      <dd>
+        <%= @the_spot_type.spot_id %>
+      </dd>
+
+      <dt>
+        Cafe
+      </dt>
+      <dd>
+        <%= @the_spot_type.cafe %>
+      </dd>
+
+      <dt>
+        Library
+      </dt>
+      <dd>
+        <%= @the_spot_type.library %>
+      </dd>
+
+      <dt>
+        Hotel
+      </dt>
+      <dd>
+        <%= @the_spot_type.hotel %>
+      </dd>
+
+      <dt>
+        Public space
+      </dt>
+      <dd>
+        <%= @the_spot_type.public_space %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_spot_type.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_spot_type.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit spot type
+    </h2>
+
+    <form action="/modify_spot_type/<%= @the_spot_type.id %>"  method="post" >
+      <div>
+        <label for="category_id_box">
+          Category
+        </label>
+
+        <input type="text" id="category_id_box" name="query_category_id" value="<%= @the_spot_type.category_id %>">
+      </div>
+
+      <div>
+        <label for="spot_id_box">
+          Spot
+        </label>
+
+        <input type="text" id="spot_id_box" name="query_spot_id" value="<%= @the_spot_type.spot_id %>">
+      </div>
+
+      <div>
+        <input type="checkbox" id="cafe_box" name="query_cafe" value="1" <%= "checked" if @the_spot_type.cafe %>>
+
+        <label for="cafe_box">
+            Cafe
+        </label>
+      </div>
+
+      <div>
+        <input type="checkbox" id="library_box" name="query_library" value="1" <%= "checked" if @the_spot_type.library %>>
+
+        <label for="library_box">
+            Library
+        </label>
+      </div>
+
+      <div>
+        <input type="checkbox" id="hotel_box" name="query_hotel" value="1" <%= "checked" if @the_spot_type.hotel %>>
+
+        <label for="hotel_box">
+            Hotel
+        </label>
+      </div>
+
+      <div>
+        <input type="checkbox" id="public_space_box" name="query_public_space" value="1" <%= "checked" if @the_spot_type.public_space %>>
+
+        <label for="public_space_box">
+            Public space
+        </label>
+      </div>
+
+      <button>
+        Update spot type
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

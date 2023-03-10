@@ -1,0 +1,18 @@
+<table>
+  <tr>
+    <th> Search... </th>
+    <th><a href="/categories">By Category</a> </th>
+    <th><a href="/regions">By Location</a></th>
+    <th><a href="/libraries">My Library</a></th>
+    <% if session[:user_id] == nil %>
+        <th><a href="/user_sign_in">Sign In</a></th>
+        <th><a href="/user_sign_up">Sign Up</a></th>
+        <% else %>
+          <th><a href="/user_sign_out">Sign Out</a></th>
+      <% end %>
+  </tr>
+</table>
+
+<div>
+  <div id="map" style='width: 800px; height: 400px;'></div>
+</div>

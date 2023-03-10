@@ -10,6 +10,78 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2023_03_10_052055) do
+
+  create_table "amenities", force: :cascade do |t|
+    t.boolean "wifi"
+    t.boolean "outlets"
+    t.boolean "food"
+    t.boolean "coffee"
+    t.integer "spot_id"
+    t.integer "offering_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "bookmarks", force: :cascade do |t|
+    t.integer "spot_id"
+    t.integer "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string "category"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "regions", force: :cascade do |t|
+    t.string "region"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer "spot_id"
+    t.integer "user_id"
+    t.string "content"
+    t.integer "rating"
+    t.string "image"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "spot_offerings", force: :cascade do |t|
+    t.string "offering"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "spot_types", force: :cascade do |t|
+    t.integer "category_id"
+    t.integer "spot_id"
+    t.boolean "cafe"
+    t.boolean "library"
+    t.boolean "hotel"
+    t.boolean "public_space"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "spots", force: :cascade do |t|
+    t.integer "region_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "name"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "email"
+    t.string "password_digest"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "username"
+  end
 
 end
