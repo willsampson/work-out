@@ -9,6 +9,11 @@ class SpotTypesController < ApplicationController
 
     @list_of_spot_types = matching_spot_types.order({ :created_at => :desc })
 
+    @matching_cafes = @list_of_spot_types.where({ :category_id => "1"}).all
+    @matching_libraries = @list_of_spot_types.where({ :category_id => "2"}).all
+    @matching_hotels = @list_of_spot_types.where({ :category_id => "3"}).all
+    @matching_public_spaces = @list_of_spot_types.where({ :category_id => "4"}).all
+
     render({ :template => "spot_types/index.html.erb" })
   end
 

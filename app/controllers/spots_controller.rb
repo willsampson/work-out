@@ -5,12 +5,6 @@ class SpotsController < ApplicationController
 
     @list_of_spots = matching_spots.order({ :created_at => :desc })
 
-    matching_spot_types = SpotType.all
-
-    @list_of_spot_types = matching_spot_types.order({ :created_at => :desc })
-
-    @matching_cafes = @list_of_spot_types.where({ :category_id => "1"}).all
-
 
     render({ :template => "spots/index.html.erb" })
   end

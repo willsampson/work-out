@@ -1,66 +1,56 @@
 <div>
   <div>
     <h1>
-      List of all spot types
+      categories
     </h1>
   </div>
 </div>
 
-<hr>
+Cafes
+<table>
+    <% @matching_cafes.each do |a_cafe| %>
+    <tr>
+      <td>
+        <%= Spot.where({ :id => a_cafe.spot_id}).at(0).name%>
+      </td>
+    </tr>
+    <%end%>
+</table>
 
-<div>
-  <div>
-    <h2>
-      Add a new spot type
-    </h2>
 
-    <form action="/insert_spot_type" method="post">
-      <div>
-        <label for="category_id_box">
-          Category
-        </label>
 
-        <input type="text" id="category_id_box" name="query_category_id">
-      </div>
+Libraries
+<table>
+    <% @matching_libraries.each do |a_cafe| %>
+    <tr>
+      <td>
+        <%= Spot.where({ :id => a_cafe.spot_id}).at(0).name%>
+      </td>
+    </tr>
+    <%end%>
+</table>
 
-      <div>
-        <label for="spot_id_box">
-          Spot
-        </label>
+Hotels
+<table>
+    <% @matching_hotels.each do |a_cafe| %>
+    <tr>
+      <td>
+        <%= Spot.where({ :id => a_cafe.spot_id}).at(0).name%>
+      </td>
+    </tr>
+    <%end%>
+</table>
 
-        <input type="text" id="spot_id_box" name="query_spot_id">
-      </div>
-
-      <div>
-        <input type="checkbox" id="cafe_box" name="query_cafe" value="1">
-
-        <label for="cafe_box">Cafe</label>
-      </div>
-
-      <div>
-        <input type="checkbox" id="library_box" name="query_library" value="1">
-
-        <label for="library_box">Library</label>
-      </div>
-
-      <div>
-        <input type="checkbox" id="hotel_box" name="query_hotel" value="1">
-
-        <label for="hotel_box">Hotel</label>
-      </div>
-
-      <div>
-        <input type="checkbox" id="public_space_box" name="query_public_space" value="1">
-
-        <label for="public_space_box">Public space</label>
-      </div>
-
-      <button>
-        Create spot type
-      </button>
-    </form>
-  </div>
-</div>
+Public Spaces
+<table>
+    <% @matching_public_spaces.each do |a_cafe| %>
+    <tr>
+      <td>
+        <%= Spot.where({ :id => a_cafe.spot_id}).at(0).name%>
+      </td>
+    </tr>
+    <%end%>
+</table>
 
 <hr>
 <div>
